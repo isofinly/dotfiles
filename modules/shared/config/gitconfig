@@ -1,0 +1,12 @@
+[user]
+ email = isofinly@icloud.com
+ name = isofinly
+[core]
+ autocrlf = input
+ excludesfile = /Users/isofinly/.gitignore_global
+[http]
+ postBuffer = 524288000
+[alias]
+ mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+[init]
+ defaultBranch = main

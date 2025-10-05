@@ -1,0 +1,98 @@
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.cache/zsh/history
+
+alias cd='z'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias grep='grep --color=auto'
+alias g='g++-12'
+alias py='python3'
+alias l='eza -lh   --icons=auto' # long list
+alias ls='eza -1   --icons=auto' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
+alias git-cliff='git-cliff --config /Users/isofinly/.config/git-cliff/config.toml'
+alias gc='g++ -std=c++17 -Wall -O3 -o'
+alias k='kubectl'
+alias t='tofu'
+
+setopt always_to_end
+setopt auto_menu
+# setopt extended_history
+
+setopt AUTOCD              # change directory just by typing its name
+setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
+setopt PROMPT_SUBST        # enable command substitution in prompt
+setopt MENU_COMPLETE       # Automatically highlight first element of completion menu
+setopt LIST_PACKED       # The completion menu takes less space.
+setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
+setopt HIST_IGNORE_DUPS     # Do not write events to history that are duplicates of previous events
+setopt HIST_FIND_NO_DUPS   # When searching history don't display results already cycled through twice
+
+source /Users/isofinly/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /Users/isofinly/.zsh/history.zsh
+source /Users/isofinly/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# export TERM=xterm-256color
+
+# export LC_MESSAGES=C.UTF-8
+# export LANG=ru_RU.UTF-8
+# export LC_CTYPE=ru_RU.UTF-8
+# export LC_ALL=ru_RU.UTF-8
+# export LANGUAGE=C.UTF-8
+# export LANG=C.UTF-8
+# export LC_ALL=C.UTF-8
+# export LC_CTYPE=C.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export PATH="$HOME/.local/bin":$PATH
+export PATH="/Users/isofinly/context/tex/texmf-osx-arm64/bin":$PATH
+export OSFONTDIR="/usr/local/share/fonts;$HOME/.fonts"
+export PATH="/Users/isofinly/bin/":$PATH
+export PATH="$BUN_INSTALL/bin:$PATH"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/Users/isofinly/.bun/bin"
+export PATH="/Library/TeX/texbin":$PATH
+export EDITOR=zed
+export HOMEBREW_NO_ENV_HINTS=1
+export CARGO_TARGET_DIR="$HOME/.cargo-target"
+export PATH='/Users/isofinly/.duckdb/cli/latest':$PATH
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# bun completions
+[ -s "/Users/isofinly/.bun/_bun" ] && source "/Users/isofinly/.bun/_bun"
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'; fi
+
+# Control + Left Arrow
+bindkey '^[b' backward-word
+# Control + Right Arrow
+bindkey '^[f' forward-word
+# Make Option + Delete behave like in standard macOS apps
+bindkey '^[^?' backward-kill-word    # Option + Delete
+# Command + Left: Move to start of line
+bindkey "^A" beginning-of-line
+# Command + Right: Move to end of line
+bindkey "^E" end-of-line
+# Command + Delete: Delete whole line
+bindkey "^[[3;9~" kill-whole-line
+
+. "$HOME/.atuin/bin/env"
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/isofinly/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
+eval "$(atuin init zsh)"

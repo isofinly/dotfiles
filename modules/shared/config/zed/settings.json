@@ -1,0 +1,116 @@
+{
+  "ssh_connections": [
+    {
+      "host": "iota-node",
+      "username": "isofinly",
+      "projects": [
+        {
+          "paths": ["/home/isofinly/labs/ydb"]
+        },
+        {
+          "paths": ["/home/isofinly/traefik-k8s"]
+        }
+      ]
+    }
+  ],
+  "edit_predictions": {
+    "mode": "eager"
+  },
+  "theme": "Oxocarbon Dark (IBM Carbon)",
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": false
+  },
+
+  "ui_font_size": 16,
+  "buffer_font_size": 14,
+  "buffer_font_features": {
+    "calt": false
+  },
+  "soft_wrap": "preferred_line_length",
+  "preferred_line_length": 100,
+
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "extend_comment_on_newline": false,
+  "autosave": "on_focus_change",
+
+  "format_on_save": "on",
+  "languages": {
+    "YAML": {
+      "formatter": "language_server",
+      "show_whitespaces": "boundary",
+      "format_on_save": "off"
+    },
+    "TypeScript": {
+      "show_whitespaces": "boundary"
+    },
+    "C": { "format_on_save": "off" },
+    "C++": { "format_on_save": "off" }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "checkOnSave": true,
+        "initialization_options": {
+          "inlayHints": {
+            "maxLength": null,
+            "lifetimeElisionHints": {
+              "enable": "skip_trivial",
+              "useParameterNames": true
+            },
+            "closureReturnTypeHints": {
+              "enable": "always"
+            }
+          }
+        }
+      }
+    },
+    "typos": {
+      "initialization_options": {
+        "config": "~/.config/typos.toml",
+        "path": "typos-lsp"
+      }
+    }
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-thinking"
+    },
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-thinking"
+    },
+    "button": true
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "search": { "button": false },
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50
+  },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 3,
+      "min_column": 0
+    }
+  },
+  "gutter": {
+    "line_numbers": true
+  }
+}
