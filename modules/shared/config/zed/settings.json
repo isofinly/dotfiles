@@ -1,18 +1,5 @@
 {
-  "ssh_connections": [
-    {
-      "host": "iota-node",
-      "username": "isofinly",
-      "projects": [
-        {
-          "paths": ["/home/isofinly/labs/ydb"]
-        },
-        {
-          "paths": ["/home/isofinly/traefik-k8s"]
-        }
-      ]
-    }
-  ],
+  "ssh_connections": [],
   "edit_predictions": {
     "mode": "eager"
   },

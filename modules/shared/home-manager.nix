@@ -1,7 +1,7 @@
 {
-  config,
   pkgs,
   lib,
+  config,
   ...
 }:
 
@@ -20,165 +20,205 @@ in
     stateHome = "${config.home.homeDirectory}/.local/state";
   };
 
-  # Bash configuration as fallback
-  bash = {
-    enable = true;
-    enableCompletion = true;
+  # Environment variables
+  home.sessionVariables = {
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+    EDITOR = "nvim";
+    HOMEBREW_NO_ENV_HINTS = "1";
+    CARGO_TARGET_DIR = "$HOME/.cargo-target";
+    BUN_INSTALL = "$HOME/.bun";
+    OSFONTDIR = "/usr/local/share/fonts;$HOME/.fonts";
   };
 
-  # Starship prompt
-  starship = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-  };
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/bin"
+    "$HOME/.cargo/bin"
+    "$HOME/.bun/bin"
+    "$HOME/.duckdb/cli/latest"
+  ];
 
-  # Git configuration using imported settings
-  git = {
-    enable = true;
-    userName = name;
-    userEmail = email;
-    lfs.enable = true;
+  programs = {
+    bash = {
+      enable = true;
+      enableCompletion = true;
+    };
 
-    ignores = [
-      "*.swp"
-      ".DS_Store"
-      "*.log"
-      ".env"
-    ];
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
 
-    extraConfig = {
-      init.defaultBranch = "main";
-      core = {
-        editor = "nvim";
-        autocrlf = "input";
-        excludesfile = "~/.gitignore_global";
+      shellAliases = {
+        cd = "z";
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
+        grep = "grep --color=auto";
+        g = "g++-12";
+        py = "python3";
+        l = "eza -lh --icons=auto";
+        ls = "eza -1 --icons=auto";
+        ll = "eza -lha --icons=auto --sort=name --group-directories-first";
+        ld = "eza -lhD --icons=auto";
+        git-cliff = "git-cliff --config ~/.config/git-cliff/config.toml";
+        gc = "g++ -std=c++17 -Wall -O3 -o";
+        k = "kubectl";
+        t = "tofu";
       };
-      pull.rebase = true;
-      rebase.autoStash = true;
-      http.postBuffer = 524288000;
 
-      # Aliases from imported gitconfig
-      alias = {
-        mr = "!sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -";
+      history = {
+        size = 1000;
+        save = 1000;
+        path = "${config.xdg.cacheHome}/zsh/history";
+        ignoreDups = true;
+        ignoreAllDups = true;
       };
-    };
-  };
 
-  # Modern terminal utilities
-  eza = {
-    enable = true;
-    git = true;
-    icons = "auto";
-  };
+      setOptions = [
+        "ALWAYS_TO_END"
+        "AUTO_MENU"
+        "AUTOCD"
+        "COMPLETE_IN_WORD"
+        "PROMPT_SUBST"
+        "MENU_COMPLETE"
+        "LIST_PACKED"
+        "AUTO_LIST"
+        "HIST_IGNORE_DUPS"
+        "HIST_FIND_NO_DUPS"
+      ];
 
-  zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+      plugins = [
+        {
+          name = "fast-syntax-highlighting";
+          src = pkgs.fetchFromGitHub {
+            owner = "zdharma-continuum";
+            repo = "fast-syntax-highlighting";
+            rev = "v1.55";
+            sha256 = "sha256-DWVFBoICroKaKgByLmDEo4O+xo6eA8YO792g8t8R7kA=";
+          };
+        }
+        {
+          name = "zsh-autocomplete";
+          src = pkgs.fetchFromGitHub {
+            owner = "marlonrichert";
+            repo = "zsh-autocomplete";
+            rev = "24.09.04";
+            sha256 = "sha256-o8IQszQ4/PLX1FlUvJpowR2Tev59N8lI20VymZ+Hp4w=";
+          };
+        }
+      ];
 
-  atuin = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      update_check = false;
-      sync_address = "";
-      search_mode = "fuzzy";
-    };
-  };
+      initContent = ''
+        # Key bindings
+        bindkey '^[b' backward-word
+        bindkey '^[f' forward-word
+        bindkey '^[^?' backward-kill-word
+        bindkey "^A" beginning-of-line
+        bindkey "^E" end-of-line
+        bindkey "^[[3;9~" kill-whole-line
 
-  # Neovim configuration
-  neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
+        # Bun completions
+        [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-  # SSH configuration
-  ssh = {
-    enable = true;
-    enableDefaultConfig = false;
-    includes = [
-      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/config_external")
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/config_external")
-    ];
-    matchBlocks = {
-      "*" = {
-        sendEnv = [
-          "LANG"
-          "LC_*"
-        ];
-        hashKnownHosts = true;
-      };
-    };
-  };
+        # Docker completions
+        fpath=($HOME/.docker/completions $fpath)
 
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      cd = "z";
-      ".." = "cd ..";
-      "..." = "cd ../..";
-      "...." = "cd ../../..";
-      grep = "grep --color=auto";
-      g = "g++-12";
-      py = "python3";
-      l = "eza -lh --icons=auto";
-      ls = "eza -1 --icons=auto";
-      ll = "eza -lha --icons=auto --sort=name --group-directories-first";
-      ld = "eza -lhD --icons=auto";
-      git-cliff = "git-cliff --config ~/.config/git-cliff/config.toml";
-      gc = "g++ -std=c++17 -Wall -O3 -o";
-      k = "kubectl";
-      t = "tofu";
+        # Nix daemon
+        if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+          . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+        fi
+
+        # Atuin env
+        . "$HOME/.atuin/bin/env"
+
+        # Mise activation
+        eval "$(${pkgs.mise}/bin/mise activate zsh)"
+      '';
     };
 
-    history = {
-      size = 1000;
-      save = 1000;
-      path = "${config.xdg.cacheHome}/zsh/history";
-      ignoreDups = true;
-      ignoreAllDups = true;
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
     };
 
-    autosuggestion.enable = true;
-    enableCompletion = true;
+    git = {
+      enable = true;
+      userName = name;
+      userEmail = email;
+      lfs.enable = true;
 
-    setOptions = [
-      "ALWAYS_TO_END"
-      "AUTO_MENU"
-      "AUTOCD"
-      "COMPLETE_IN_WORD"
-      "PROMPT_SUBST"
-      "MENU_COMPLETE"
-      "LIST_PACKED"
-      "AUTO_LIST"
-      "HIST_IGNORE_DUPS"
-      "HIST_FIND_NO_DUPS"
-    ];
+      ignores = [
+        "*.swp"
+        ".DS_Store"
+        "*.log"
+        ".env"
+      ];
 
-    syntaxHighlighting.enable = true;
-
-    plugins = [
-      {
-        name = "fast-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          owner = "zdharma-continuum";
-          repo = "fast-syntax-highlighting";
-          rev = "v1.55";
-          sha256 = "sha256-DWVFBoICroKaKgByLmDEo4O+xo6eA8YO792g8t8R7kA=";
+      extraConfig = {
+        init.defaultBranch = "main";
+        core = {
+          editor = "nvim";
+          autocrlf = "input";
+          excludesfile = "~/.gitignore_global";
         };
-      }
-      {
-        name = "zsh-autocomplete";
-        src = pkgs.fetchFromGitHub {
-          owner = "marlonrichert";
-          repo = "zsh-autocomplete";
-          rev = "24.09.04";
-          sha256 = "sha256-K5wIspJfFp/t8xzI4QfqfuqDhQkW7YvFX8gJxTXh0Qw=";
+        pull.rebase = true;
+        rebase.autoStash = true;
+        http.postBuffer = 524288000;
+
+        alias = {
+          mr = "!sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -";
         };
-      }
-    ];
+      };
+    };
+
+    eza = {
+      enable = true;
+      git = true;
+      icons = "auto";
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        update_check = false;
+        sync_address = "";
+        search_mode = "fuzzy";
+      };
+    };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      includes = [
+        (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/config_external")
+        (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/config_external")
+      ];
+      matchBlocks = {
+        "*" = {
+          sendEnv = [
+            "LANG"
+            "LC_*"
+          ];
+          hashKnownHosts = true;
+        };
+      };
+    };
   };
 }

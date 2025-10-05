@@ -5,6 +5,10 @@
     text = builtins.readFile ../shared/config/profile;
   };
 
+  ".zprofile" = {
+    text = builtins.readFile ../shared/config/zprofile;
+  };
+
   # Git configuration
   ".gitconfig" = {
     text = builtins.readFile ../shared/config/gitconfig;

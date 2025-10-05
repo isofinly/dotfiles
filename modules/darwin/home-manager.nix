@@ -36,38 +36,36 @@ in
     users.${user} =
       {
         pkgs,
-        config,
         lib,
         ...
       }:
-      lib.mkMerge [
-        (import ../shared/home-manager.nix { inherit config pkgs lib; })
+      {
+        imports = [
+          ../shared/home-manager.nix
+        ];
 
-        # Darwin-specific additions
-        {
-          home = {
-            enableNixpkgsReleaseCheck = false;
-            packages = pkgs.callPackage ./packages.nix { };
-            file = lib.mkMerge [
-              sharedFiles
-              additionalFiles
-            ];
-            stateVersion = "23.11";
+        home = {
+          enableNixpkgsReleaseCheck = false;
+          packages = pkgs.callPackage ./packages.nix { };
+          file = lib.mkMerge [
+            sharedFiles
+            additionalFiles
+          ];
+          stateVersion = "23.11";
 
-            # Darwin-specific PATH additions
-            sessionPath = [
-              "/Library/TeX/texbin"
-              "$HOME/context/tex/texmf-osx-arm64/bin"
-            ];
-          };
+          # Darwin-specific PATH additions
+          sessionPath = [
+            "/Library/TeX/texbin"
+            "$HOME/context/tex/texmf-osx-arm64/bin"
+          ];
+        };
 
-          # Extend ZSH configuration with Darwin-specific init
-          programs.zsh.initExtra = lib.mkAfter ''
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-          '';
+        # Darwin-specific ZSH extension
+        programs.zsh.initContent = lib.mkAfter ''
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        '';
 
-          manual.manpages.enable = false;
-        }
-      ];
+        manual.manpages.enable = false;
+      };
   };
 }
