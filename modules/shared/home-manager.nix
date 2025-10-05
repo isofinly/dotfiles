@@ -40,9 +40,9 @@ in
   ];
 
   programs = {
-    bash = {
+    direnv = {
       enable = true;
-      enableCompletion = true;
+      nix-direnv.enable = true;
     };
 
     zsh = {
@@ -98,15 +98,6 @@ in
             repo = "fast-syntax-highlighting";
             rev = "v1.55";
             sha256 = "sha256-DWVFBoICroKaKgByLmDEo4O+xo6eA8YO792g8t8R7kA=";
-          };
-        }
-        {
-          name = "zsh-autocomplete";
-          src = pkgs.fetchFromGitHub {
-            owner = "marlonrichert";
-            repo = "zsh-autocomplete";
-            rev = "24.09.04";
-            sha256 = "sha256-o8IQszQ4/PLX1FlUvJpowR2Tev59N8lI20VymZ+Hp4w=";
           };
         }
       ];
