@@ -99,5 +99,10 @@
   },
   "gutter": {
     "line_numbers": true
+  },
+  "terminal": {
+    "shell": {
+      "with_arguments": { "program": "zsh", "args": ["--login"] }
+    }
   }
 }

@@ -56,4 +56,7 @@ with pkgs;
   # LSP
   nil
   nixd
+
+  # Other
+  obsidian
 ]
