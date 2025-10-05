@@ -62,6 +62,14 @@ in
 
         # Darwin-specific ZSH extension
         programs.zsh.initContent = lib.mkAfter ''
+          # Key bindings
+          bindkey '^[b' backward-word
+          bindkey '^[f' forward-word
+          bindkey '^[^?' backward-kill-word
+          bindkey "^A" beginning-of-line
+          bindkey "^E" end-of-line
+          bindkey "^[[3;9~" kill-whole-line
+          bindkey "^[[3~" delete-char
           eval "$(/opt/homebrew/bin/brew shellenv)"
         '';
 

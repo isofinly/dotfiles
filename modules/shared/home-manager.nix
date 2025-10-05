@@ -112,14 +112,6 @@ in
       ];
 
       initContent = ''
-        # Key bindings
-        bindkey '^[b' backward-word
-        bindkey '^[f' forward-word
-        bindkey '^[^?' backward-kill-word
-        bindkey "^A" beginning-of-line
-        bindkey "^E" end-of-line
-        bindkey "^[[3;9~" kill-whole-line
-
         # Bun completions
         [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
