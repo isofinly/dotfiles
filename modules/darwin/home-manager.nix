@@ -70,6 +70,7 @@ in
           bindkey "^E" end-of-line
           bindkey "^[[3;9~" kill-whole-line
           bindkey "^[[3~" delete-char
+
           eval "$(/opt/homebrew/bin/brew shellenv)"
         '';
 

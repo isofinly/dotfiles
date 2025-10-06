@@ -48,7 +48,7 @@ in
     zsh = {
       enable = true;
       enableCompletion = true;
-      autosuggestion.enable = true;
+      autosuggestion.enable = false;
       syntaxHighlighting.enable = true;
 
       shellAliases = {
@@ -90,18 +90,6 @@ in
         "HIST_FIND_NO_DUPS"
       ];
 
-      plugins = [
-        {
-          name = "fast-syntax-highlighting";
-          src = pkgs.fetchFromGitHub {
-            owner = "zdharma-continuum";
-            repo = "fast-syntax-highlighting";
-            rev = "v1.55";
-            sha256 = "sha256-DWVFBoICroKaKgByLmDEo4O+xo6eA8YO792g8t8R7kA=";
-          };
-        }
-      ];
-
       initContent = ''
         # Bun completions
         [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
@@ -116,9 +104,6 @@ in
 
         # Atuin env
         . "$HOME/.atuin/bin/env"
-
-        # Mise activation
-        eval "$(${pkgs.mise}/bin/mise activate zsh)"
       '';
     };
 
