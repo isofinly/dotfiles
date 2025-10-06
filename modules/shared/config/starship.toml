@@ -16,16 +16,17 @@ command_timeout = 3600000
 add_newline = false
 
 [character]
-success_symbol = '[\$](bold dimmed green)'
-error_symbol = '[\$](bold dimmed green)'
-vicmd_symbol = "[<](bold green)"
+success_symbol = '[\$](bold dimmed blue)'
+error_symbol = '[\$](bold dimmed blue)'
+vicmd_symbol = "[<](bold blue)"
 
 [git_branch]
 symbol = "git "
+style = "dimmed subtext0"
 
 [git_commit]
 tag_symbol = " tag "
-style = "mauve"
+style = "dimmed subtext0"
 
 [time]
 disabled = false
@@ -36,8 +37,8 @@ style = "243"
 [directory]
 truncation_length = 0
 truncate_to_repo = false
-before_repo_root_style = 'dimmed bold cyan'
-repo_root_style = 'bold cyan'
+before_repo_root_style = 'dimmed bold lavender'
+repo_root_style = 'bold lavender'
 
 [cmd_duration]
 format = "took [$duration]($style)\n"
