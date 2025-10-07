@@ -59,10 +59,10 @@ in
         grep = "grep --color=auto";
         g = "g++-12";
         py = "python3";
-        l = "eza -lh --icons=auto";
-        ls = "eza -1 --icons=auto";
-        ll = "eza -lha --icons=auto --sort=name --group-directories-first";
-        ld = "eza -lhD --icons=auto";
+        l = "eza -lh --icons=never";
+        ls = "eza -1 --icons=never";
+        ll = "eza -lha --icons=never --sort=name --group-directories-first";
+        ld = "eza -lhD --icons=never";
         git-cliff = "git-cliff --config ~/.config/git-cliff/config.toml";
         gc = "g++ -std=c++17 -Wall -O3 -o";
         k = "kubectl";
