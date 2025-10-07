@@ -11,6 +11,7 @@ let
 in
 {
   imports = [
+    ./system.nix
   ];
 
   users.users.${user} = {

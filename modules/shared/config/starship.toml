@@ -37,8 +37,12 @@ style = "243"
 [directory]
 truncation_length = 0
 truncate_to_repo = false
-before_repo_root_style = 'dimmed bold lavender'
-repo_root_style = 'bold lavender'
+format = "[$path]($style)[$read_only]($read_only_style) "
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+style = "dimmed bold lavender"
+before_repo_root_style = "dimmed bold lavender"
+repo_root_style = "dimmed bold lavender"
+read_only_style = "bold lavender"
 
 [cmd_duration]
 format = "took [$duration]($style)\n"
