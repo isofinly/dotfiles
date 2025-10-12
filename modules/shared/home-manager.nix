@@ -101,11 +101,17 @@ in
         if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
           . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         fi
-
-        # Atuin env
-        . "$HOME/.atuin/bin/env"
       '';
     };
+
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      # Optional tweaks:
+      # flags = [ "--disable-up-arrow" ];
+      # settings = { auto_sync = true; };  # see HM options
+    };
+
 
     starship = {
       enable = true;
