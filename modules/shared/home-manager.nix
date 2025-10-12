@@ -104,15 +104,6 @@ in
       '';
     };
 
-    atuin = {
-      enable = true;
-      enableZshIntegration = true;
-      # Optional tweaks:
-      # flags = [ "--disable-up-arrow" ];
-      # settings = { auto_sync = true; };  # see HM options
-    };
-
-
     starship = {
       enable = true;
       enableZshIntegration = true;

@@ -7,6 +7,7 @@ in
   environment.systemPackages =
     sharedPackages
     ++ (with pkgs; [
+      docker
       ghostty
       neovim
       fastfetch
