@@ -10,6 +10,4 @@ shared-packages
   mas
   # MacOS name
   gemini-cli
-  # Utils
-  code2prompt
 ]

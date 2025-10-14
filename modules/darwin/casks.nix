@@ -8,7 +8,6 @@ _:
   "vlc"
   "maccy"
   "spotify"
-  "warp"
   "stats"
   "wezterm"
   "ghostty"

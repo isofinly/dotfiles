@@ -24,6 +24,7 @@ in
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix { };
+    brews = pkgs.callPackage ./brews.nix { };
 
     masApps = {
       "telegram" = 747648890;
@@ -52,7 +53,7 @@ in
             sharedFiles
             additionalFiles
           ];
-          stateVersion = "23.11";
+          stateVersion = "25.05";
 
           # Darwin-specific PATH additions
           sessionPath = [
