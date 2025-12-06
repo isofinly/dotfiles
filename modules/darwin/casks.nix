@@ -15,4 +15,5 @@ _:
   "postman"
   "tex-live-utility"
   "zed"
+  "obs"
 ]
