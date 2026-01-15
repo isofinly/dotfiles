@@ -44,7 +44,7 @@ with pkgs;
   hack-font
   jetbrains-mono
   noto-fonts
-  noto-fonts-emoji
+  noto-fonts-color-emoji
   dejavu_fonts
   font-awesome
 
@@ -59,4 +59,5 @@ with pkgs;
 
   # Other
   obsidian
+  darktable
 ]

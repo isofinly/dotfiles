@@ -16,4 +16,7 @@ _:
   "tex-live-utility"
   "zed"
   "obs"
+  "orion"
+  "iina"
+  "arduino-ide"
 ]

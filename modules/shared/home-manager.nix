@@ -51,6 +51,8 @@ in
       autosuggestion.enable = false;
       syntaxHighlighting.enable = true;
 
+      dotDir = config.home.homeDirectory;
+
       shellAliases = {
         cd = "z";
         ".." = "cd ..";
@@ -112,8 +114,6 @@ in
 
     git = {
       enable = true;
-      userName = name;
-      userEmail = email;
       lfs.enable = true;
 
       ignores = [
@@ -123,7 +123,11 @@ in
         ".env"
       ];
 
-      extraConfig = {
+      settings = {
+        user = {
+          name = name;
+          email = email;
+        };
         init.defaultBranch = "main";
         core = {
           editor = "nvim";
