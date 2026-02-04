@@ -8,8 +8,8 @@ in
     sharedPackages
     ++ (with pkgs; [
       docker
-      ghostty
       neovim
+      vlc
       fastfetch
       ripgrep
       python314  # see note below

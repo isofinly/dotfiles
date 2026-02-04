@@ -60,4 +60,7 @@ with pkgs;
   # Other
   obsidian
   darktable
+
+  opencode
+  codex
 ]

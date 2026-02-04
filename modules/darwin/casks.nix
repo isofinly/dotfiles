@@ -1,22 +1,19 @@
 _:
 
 [
-  "gitbutler"
   "rar"
-  "visual-studio-code"
   "basictex"
-  "vlc"
   "maccy"
   "spotify"
   "stats"
-  "wezterm"
   "ghostty"
   "hiddenbar"
-  "postman"
   "tex-live-utility"
   "zed"
   "obs"
-  "orion"
   "iina"
   "arduino-ide"
+  "little-snitch"
+  "blackhole-2ch"
+  "bruno"
 ]
