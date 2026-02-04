@@ -28,6 +28,11 @@
     recursive = true;
   };
 
+  ".config/ghostty" = {
+    source = ../shared/config/ghostty;
+    recursive = true;
+  };
+
   # Editor configurations
   ".config/nvim" = {
     source = ../shared/config/nvim;
