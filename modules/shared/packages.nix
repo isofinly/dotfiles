@@ -61,6 +61,6 @@ with pkgs;
   obsidian
   darktable
 
-  opencode
-  codex
+  # opencode
+  # codex
 ]

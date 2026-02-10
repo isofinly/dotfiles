@@ -27,15 +27,12 @@ in
     EDITOR = "nvim";
     HOMEBREW_NO_ENV_HINTS = "1";
     CARGO_TARGET_DIR = "$HOME/.cargo-target";
-    BUN_INSTALL = "$HOME/.bun";
     OSFONTDIR = "/usr/local/share/fonts;$HOME/.fonts";
   };
 
   home.sessionPath = [
     "$HOME/.local/bin"
     "$HOME/bin"
-    "$HOME/.cargo/bin"
-    "$HOME/.bun/bin"
     "$HOME/.duckdb/cli/latest"
   ];
 
@@ -93,9 +90,6 @@ in
       ];
 
       initContent = ''
-        # Bun completions
-        [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
         # Docker completions
         fpath=($HOME/.docker/completions $fpath)
 

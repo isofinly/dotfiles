@@ -16,4 +16,7 @@ _:
   "little-snitch"
   "blackhole-2ch"
   "bruno"
+  "finetune"
+  "libreoffice"
+  "docker-desktop"
 ]

@@ -6,4 +6,6 @@ _:
   "typst"
   "switchaudio-osx"
   "yt-dlp"
+  
+  "opencode"
 ]
