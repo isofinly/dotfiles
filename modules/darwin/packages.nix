@@ -8,6 +8,4 @@ shared-packages
 ++ [
   # MacOS
   mas
-  # MacOS name
-  gemini-cli
 ]

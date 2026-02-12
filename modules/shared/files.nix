@@ -33,6 +33,11 @@
     recursive = true;
   };
 
+   ".config/opencode" = {
+    source = ../shared/config/opencode;
+    recursive = true;
+  };
+
   # Editor configurations
   ".config/nvim" = {
     source = ../shared/config/nvim;
