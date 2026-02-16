@@ -2,13 +2,11 @@ _:
 
 [
   "rar"
-  "basictex"
   "maccy"
   "spotify"
   "stats"
   "ghostty"
   "hiddenbar"
-  "tex-live-utility"
   "zed"
   "obs"
   "iina"
