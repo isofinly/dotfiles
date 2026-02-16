@@ -30,24 +30,6 @@
           protoc-gen-rust-grpc
         ];
 
-        cqlls = pkgs.rustPlatform.buildRustPackage rec {
-          pname = "cqlls";
-          version = "1.0.0";
-
-          src = pkgs.fetchCrate {
-            inherit pname version;
-            sha256 = "sha256-O6xU7gaNCZ9163Zk+4SJM7lNq1Dn3BQhILKZos7l3sI=";
-          };
-
-          doCheck = false;
-          cargoHash = "sha256-fcrRCNEMTFatHvVdE9zPukuq84hD6RUkEYInrqtzFeg=";
-
-          meta = with pkgs.lib; {
-            description = "The best Language Server for CQL (Cassandra Query Language)";
-            homepage = "https://crates.io/crates/cqlls";
-            license = licenses.mit;
-          };
-        };
       in
       {
         devShells.default = pkgs.mkShell {
@@ -62,8 +44,6 @@
               })
               openssl
               pkg-config
-              cassandra
-              cqlls
               cargo-deny
             ]
             ++ protoTools;
@@ -74,7 +54,6 @@
 
           shellHook = ''
             rustc --version
-            cqlsh --version
             buf --version
           '';
         };
