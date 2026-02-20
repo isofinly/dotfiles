@@ -17,4 +17,5 @@ _:
   "finetune"
   "libreoffice"
   "docker-desktop"
+  "zerotier-one"
 ]

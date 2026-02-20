@@ -1,6 +1,7 @@
 {
   "ssh_connections": [],
   "edit_predictions": {
+    "provider": "zed",
     "mode": "eager"
   },
   "theme": "Oxocarbon Dark (IBM Carbon)",
@@ -61,16 +62,7 @@
     }
   },
   "agent": {
-    "always_allow_tool_actions": true,
     "default_profile": "write",
-    "inline_assistant_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-thinking"
-    },
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-thinking"
-    },
     "button": false
   },
   "collaboration_panel": {
@@ -78,9 +70,6 @@
   },
   "notification_panel": {
     "button": false
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
   },
   "search": { "button": false },
   "inlay_hints": {
