@@ -18,4 +18,5 @@ _:
   "libreoffice"
   "docker-desktop"
   "zerotier-one"
+  "cursor-cli"
 ]

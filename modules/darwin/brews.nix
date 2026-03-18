@@ -5,5 +5,6 @@ _:
   "code2prompt"
   "typst"
   "switchaudio-osx"
-  "yt-dlp" 
+  "yt-dlp"
+  "displayplacer"
 ]

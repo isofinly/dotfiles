@@ -1,4 +1,17 @@
 {
+  "agent_servers": {
+    "cursor": {
+      "favorite_config_option_values": {
+        "model": [
+          "claude-sonnet-4-6[thinking=true,context=200k,effort=medium]",
+          "claude-opus-4-6[thinking=true,context=200k,effort=high,fast=false]",
+          "composer-1.5[]",
+          "default[]"
+        ]
+      },
+      "type": "registry"
+    }
+  },
   "ssh_connections": [],
   "edit_predictions": {
     "provider": "zed",
@@ -63,7 +76,7 @@
   },
   "agent": {
     "default_profile": "write",
-    "button": false
+    "button": true 
   },
   "collaboration_panel": {
     "button": false
