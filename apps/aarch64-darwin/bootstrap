@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.darwin-store.plist
 sudo launchctl kickstart -k system/org.nixos.darwin-store
 

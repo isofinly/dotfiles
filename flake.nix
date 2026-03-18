@@ -103,6 +103,8 @@
       "create-keys" = mkApp "create-keys" system;
       "check-keys" = mkApp "check-keys" system;
       "rollback" = mkApp "rollback" system;
+      "bootstrap" = mkApp "bootstrap" system;
+      "hidpi-monitor" = mkApp "hidpi-monitor" system;
     };
   in
   {

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+displayplacer list
+
+echo 'replace `scaling: off` with `scaling: on`'
