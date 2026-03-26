@@ -23,11 +23,6 @@
     text = builtins.readFile ../shared/config/starship.toml;
   };
 
-  ".config/wezterm" = {
-    source = ../shared/config/wezterm;
-    recursive = true;
-  };
-
   ".config/ghostty" = {
     source = ../shared/config/ghostty;
     recursive = true;
@@ -44,10 +39,10 @@
     recursive = true;
   };
 
-  ".config/zed" = {
-    source = ../shared/config/zed;
-    recursive = true;
-  };
+  # ".config/zed" = {
+  #   source = ../shared/config/zed;
+  #   recursive = true;
+  # };
 
   # Shell utilities
   ".config/atuin" = {

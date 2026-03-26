@@ -17,7 +17,11 @@
     "provider": "zed",
     "mode": "eager"
   },
-  "theme": "Oxocarbon Dark (IBM Carbon)",
+  "theme": {
+    "mode": "system",
+    "dark": "Oxocarbon Dark (IBM Carbon)",
+    "light": "Oxocarbon Light (IBM Carbon)",
+  },
   "telemetry": {
     "diagnostics": true,
     "metrics": false

@@ -52,6 +52,11 @@ with pkgs;
   pkg-config
   libtool
 
+  bento4
+  gpac
+  ffmpeg
+  zlib
+
   shellcheck
 
   # LSP
