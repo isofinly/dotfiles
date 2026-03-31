@@ -3,6 +3,7 @@
 with pkgs;
 [
   # Core system utilities
+  tailscale
   coreutils
   findutils
   gnused
@@ -41,10 +42,7 @@ with pkgs;
 
   # Fonts
   meslo-lgs-nf
-  hack-font
   jetbrains-mono
-  noto-fonts
-  noto-fonts-color-emoji
   font-awesome
 
   # Build essentials (generic)
@@ -69,23 +67,4 @@ with pkgs;
 
   # Agents
   opencode
-
-  # (buildGoModule.override { go = go_1_26; } {
-  #  pname = "entire";
-  #  version = "0.4.9";
-
-  #   src = fetchgit {
-  #     url = "https://github.com/entireio/cli";
-  #     rev = "v0.4.9";
-  #     hash = "sha256-DPSRgZdRgs4Sc9YF+BYWu2g12tyw/WmESaXCT5anA70=";
-  #   };
-
-  #   subPackages = [ "cmd/entire" ];
-  #   vendorHash = "sha256-r8+mXHN0OwhO4D/DdZIKWOYaszflmrrjIZVj20Am9gw=";
-
-  #   ldflags = [
-  #     "-X main.version=v0.4.9"
-  #     "-X main.commit=14b1c4407d7d92fb0f655d88356385a084e4a129" 
-  #   ];
-  # })
 ]
