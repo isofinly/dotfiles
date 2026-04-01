@@ -50,8 +50,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  # Printing
+  services.tailscale.enable = true;
   services.printing.enable = true;
 
   # User account
@@ -59,7 +58,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "isofinly";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   # Auto login
@@ -79,8 +78,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # VirtualBox guest
-  virtualisation.virtualbox.guest.enable = true;
+  virtualisation = {
+    virtualbox.guest.enable = true;
+    docker.enable = true;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
