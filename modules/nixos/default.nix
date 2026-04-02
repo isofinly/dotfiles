@@ -50,7 +50,12 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  services.tailscale.enable = true;
+  
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+  
   services.printing.enable = true;
 
   # User account
