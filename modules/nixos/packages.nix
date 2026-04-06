@@ -13,6 +13,7 @@ in
       fastfetch
       ripgrep
       python314  # see note below
+      ghostty
     ]);
 }
 

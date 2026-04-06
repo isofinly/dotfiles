@@ -17,4 +17,5 @@ _:
   "docker-desktop"
   "zerotier-one"
   "cursor-cli"
+  "syntax-highlight"
 ]

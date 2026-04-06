@@ -60,6 +60,7 @@ with pkgs;
   # LSP
   nil
   nixd
+  tree-sitter
 
   # Other
   obsidian
@@ -67,4 +68,5 @@ with pkgs;
 
   # Agents
   opencode
+  gemini-cli
 ]
