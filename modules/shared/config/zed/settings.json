@@ -1,38 +1,77 @@
 {
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "language_models": {
+    "openai_compatible": {
+      "TensorZero": {
+        "api_url": "https://65f4-172-86-69-123.ngrok-free.app/openai/v1",
+        "available_models": [
+          {
+            "name": "tensorzero::function_name::cursorzero9",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+            },
+          },
+        ],
+      },
+    },
+  },
+  "debugger": {
+    "dock": "bottom",
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
   "agent_servers": {
     "cursor": {
       "favorite_config_option_values": {
         "model": [
           "claude-sonnet-4-6[thinking=true,context=200k,effort=medium]",
           "claude-opus-4-6[thinking=true,context=200k,effort=high,fast=false]",
-          "composer-1.5[]",
-          "default[]"
-        ]
+          "gemini-3-flash[]",
+        ],
       },
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "ssh_connections": [],
   "edit_predictions": {
     "provider": "zed",
-    "mode": "eager"
+    "mode": "eager",
   },
   "theme": {
-    "mode": "system",
+    "mode": "light",
     "dark": "Oxocarbon Dark (IBM Carbon)",
     "light": "Oxocarbon Light (IBM Carbon)",
   },
   "telemetry": {
     "diagnostics": true,
-    "metrics": false
+    "metrics": false,
   },
 
   "ui_font_size": 16,
   "buffer_font_size": 14,
   "buffer_font_features": {
-    "calt": false
+    "calt": false,
   },
-  "soft_wrap": "preferred_line_length",
+  "soft_wrap": "bounded",
   "preferred_line_length": 100,
 
   "remove_trailing_whitespace_on_save": true,
@@ -45,13 +84,13 @@
     "YAML": {
       "formatter": "language_server",
       "show_whitespaces": "boundary",
-      "format_on_save": "off"
+      "format_on_save": "off",
     },
     "TypeScript": {
-      "show_whitespaces": "boundary"
+      "show_whitespaces": "boundary",
     },
     "C": { "format_on_save": "off" },
-    "C++": { "format_on_save": "off" }
+    "C++": { "format_on_save": "off" },
   },
   "lsp": {
     "rust-analyzer": {
@@ -62,31 +101,36 @@
             "maxLength": null,
             "lifetimeElisionHints": {
               "enable": "skip_trivial",
-              "useParameterNames": true
+              "useParameterNames": true,
             },
             "closureReturnTypeHints": {
-              "enable": "always"
-            }
-          }
-        }
-      }
+              "enable": "always",
+            },
+          },
+        },
+      },
     },
     "typos": {
       "initialization_options": {
         "config": "~/.config/typos.toml",
-        "path": "typos-lsp"
-      }
-    }
+        "path": "typos-lsp",
+      },
+    },
   },
   "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "default_model": {
+      "provider": "openrouter",
+      "model": "moonshotai/kimi-k2.6",
+      "enable_thinking": true,
+    },
     "default_profile": "write",
-    "button": true 
+    "button": true,
   },
   "collaboration_panel": {
-    "button": false
-  },
-  "notification_panel": {
-    "button": false
+    "dock": "left",
+    "button": false,
   },
   "search": { "button": false },
   "inlay_hints": {
@@ -95,7 +139,7 @@
     "show_parameter_hints": true,
     "show_other_hints": true,
     "edit_debounce_ms": 700,
-    "scroll_debounce_ms": 50
+    "scroll_debounce_ms": 50,
   },
   "diagnostics": {
     "include_warnings": true,
@@ -103,15 +147,15 @@
       "enabled": true,
       "update_debounce_ms": 150,
       "padding": 3,
-      "min_column": 0
-    }
+      "min_column": 0,
+    },
   },
   "gutter": {
-    "line_numbers": true
+    "line_numbers": true,
   },
   "terminal": {
     "shell": {
-      "with_arguments": { "program": "zsh", "args": ["--login"] }
-    }
-  }
+      "with_arguments": { "program": "zsh", "args": ["--login"] },
+    },
+  },
 }

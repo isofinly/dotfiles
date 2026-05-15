@@ -2,5 +2,14 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
     "opencode-openai-codex-auth@latest",
-  ]
+  ],
+  "provider": {
+    "openrouter": {
+      "options": {
+        "extraBody": {
+          "preset": "@preset/coding-cheap"
+        }
+      }
+    }
+  }
 }

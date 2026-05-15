@@ -7,4 +7,6 @@ _:
   "switchaudio-osx"
   "yt-dlp"
   "displayplacer"
+  "rtk"
+  "sheets"
 ]

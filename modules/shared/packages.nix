@@ -1,5 +1,21 @@
 { pkgs }:
+let
+  crush = pkgs.buildGo126Module {
+    pname = "crush";
+    version = "0.65.3";
 
+    src = pkgs.fetchFromGitHub {
+      owner = "charmbracelet";
+      repo = "crush";
+      rev = "3aa26d9";
+      hash = "sha256-X+bCwpyAFUkM1ljj5I6w6gts6b6IWYm1d4veV0mR0gA=";
+    };
+
+    vendorHash = "sha256-moVpfFscZLz7mQw+pqaG132k9KTNyRdKOFNNd0RN1oo=";
+
+    doCheck = false;
+  };
+in
 with pkgs;
 [
   # Core system utilities
@@ -68,5 +84,7 @@ with pkgs;
 
   # Agents
   opencode
-  gemini-cli
+  crush
+
+  flyctl
 ]

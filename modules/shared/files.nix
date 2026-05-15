@@ -28,7 +28,7 @@
     recursive = true;
   };
 
-   ".config/opencode" = {
+  ".config/opencode" = {
     source = ../shared/config/opencode;
     recursive = true;
   };
@@ -36,6 +36,16 @@
   # Editor configurations
   ".config/nvim" = {
     source = ../shared/config/nvim;
+    recursive = true;
+  };
+
+  ".config/crush" = {
+    source = ../shared/config/crush;
+    recursive = true;
+  };
+
+  ".config/crush/hooks" = {
+    source = ../shared/config/crush/hooks;
     recursive = true;
   };
 

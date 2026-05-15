@@ -28,6 +28,7 @@ in
     HOMEBREW_NO_ENV_HINTS = "1";
     CARGO_TARGET_DIR = "$HOME/.cargo-target";
     OSFONTDIR = "/usr/local/share/fonts;$HOME/.fonts";
+    TERM = "xterm-256color";
   };
 
   home.sessionPath = [
@@ -98,6 +99,10 @@ in
           . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         fi
       '';
+
+      envExtra = ''
+        export TERM="''${TERM:-xterm-256color}"
+      '';
     };
 
     starship = {
@@ -164,6 +169,7 @@ in
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      withPython3 = false;
     };
 
     ssh = {

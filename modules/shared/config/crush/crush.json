@@ -1,0 +1,19 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "auto_lsp": true,
+    "initialize_as": "AGENTS.md",
+    "context_paths": [
+      "~/.config/AGENTS.md",
+      ".agents/AGENTS.md"
+    ]
+  },
+  "hooks":{
+    "PreToolUse": [
+      {
+        "matcher": "bash", 
+        "command": "/Users/isofinly/.config/crush/hooks/rtk.sh"
+      }
+    ]
+  }
+}

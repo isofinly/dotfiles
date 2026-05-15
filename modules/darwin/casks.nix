@@ -12,10 +12,8 @@ _:
   "arduino-ide"
   "little-snitch"
   "blackhole-2ch"
-  "bruno"
   "libreoffice"
   "docker-desktop"
   "zerotier-one"
-  "cursor-cli"
   "syntax-highlight"
 ]

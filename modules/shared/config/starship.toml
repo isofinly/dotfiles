@@ -12,7 +12,7 @@ $time
 $character
 """
 
-command_timeout = 3600000
+command_timeout = 300000
 add_newline = false
 
 [character]
