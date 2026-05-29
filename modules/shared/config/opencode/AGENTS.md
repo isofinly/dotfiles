@@ -6,17 +6,13 @@
 
 While working, if you come across any bugs, missing features, or other oddities about the implementation, structure, or workflow, **add a concise description of them to SESSION.md** to defer solving such incidental tasks until later. You do not need to fix them all straight away unless they block your progress; writing them down is often sufficient. **Do not write your accomplishments into this file.**
 
-## Git workflow
+## JJ & Git workflow
 
-Make sure you use git mv to move any files that are already checked into git.
+Preferred way to interact with VCS is idiomatic `jj`. If not possible/feasible -- stick to idiomatic git interactions. 
 
-When writing commit messages, ensure that you explain any non-obvious trade-offs we've made in the design or implementation.
+Do not push changes unless explicitly tasked by user.
 
-Wrap any prose (but not code) in the commit message to match git commit conventions, including the title. Also, follow semantic commit conventions for the commit title.
-
-When you refer to types or very short code snippets, place them in backticks. When you have a full line of code or more than one line of code, put them in indented code blocks.
-
-Prefer to write git commit messages by using a temporary file rather than using command-line arguments to the `git` command. Remove the temporary file afterwards.
+Use **concise** and meaningful commit messages with line limit at most 72 symbols after work is done.
 
 ## Documentation preferences
 

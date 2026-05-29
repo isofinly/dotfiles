@@ -65,4 +65,9 @@
     source = ../shared/config/git-cliff;
     recursive = true;
   };
+
+  ".config/tmux" = {
+    source = ../shared/config/tmux;
+    recursive = true;
+  };
 }

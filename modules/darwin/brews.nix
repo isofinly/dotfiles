@@ -5,7 +5,6 @@ _:
   "code2prompt"
   "typst"
   "switchaudio-osx"
-  "yt-dlp"
   "displayplacer"
   "rtk"
   "sheets"

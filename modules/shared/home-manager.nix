@@ -167,9 +167,10 @@ in
     neovim = {
       enable = true;
       defaultEditor = true;
-      viAlias = true;
+      viAlias = false;
       vimAlias = true;
       withPython3 = false;
+      withRuby = false;
     };
 
     ssh = {
@@ -179,14 +180,12 @@ in
         (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${user}/.ssh/config_external")
         (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${user}/.ssh/config_external")
       ];
-      matchBlocks = {
-        "*" = {
-          sendEnv = [
-            "LANG"
-            "LC_*"
-          ];
-          hashKnownHosts = true;
-        };
+      settings."*" = {
+        SendEnv = [
+          "LANG"
+          "LC_*"
+        ];
+        HashKnownHosts = true;
       };
     };
   };

@@ -2,12 +2,12 @@
 let
   crush = pkgs.buildGo126Module {
     pname = "crush";
-    version = "0.65.3";
+    version = "0.71.0";
 
     src = pkgs.fetchFromGitHub {
       owner = "charmbracelet";
       repo = "crush";
-      rev = "3aa26d9";
+      rev = "dd4318a";
       hash = "sha256-X+bCwpyAFUkM1ljj5I6w6gts6b6IWYm1d4veV0mR0gA=";
     };
 
@@ -19,24 +19,31 @@ in
 with pkgs;
 [
   # Core system utilities
-  tailscale
   coreutils
   findutils
   gnused
   gnugrep
   gawk
+  nmap
   killall
-  wget
-  curl
-  zip
-  unzip
-  tree
-  jq
-  yq
+  
+  # Build essentials (generic)
+
+  bento4
+  gpac
+  ffmpeg
+  zlib
+
+  gnumake
+  pkg-config
+  libtool
+
 
   # Shell and terminal utilities
   zsh
   bash
+  wget
+  curl
   bash-completion
   starship
   zoxide
@@ -44,33 +51,27 @@ with pkgs;
   ripgrep
   fzf
   atuin
+  tmux
+
   scc
+  tree
+  jq
+  yq
 
   # Version control tools
+  jujutsu  
   git
-  git-cliff
   gh
-
-  nmap
 
   p7zip
   unrar
+  zip
+  unzip
 
   # Fonts
   meslo-lgs-nf
   jetbrains-mono
   font-awesome
-
-  # Build essentials (generic)
-  gnumake
-  pkg-config
-  libtool
-
-  bento4
-  gpac
-  ffmpeg
-  zlib
-
   shellcheck
 
   # LSP
@@ -79,12 +80,17 @@ with pkgs;
   tree-sitter
 
   # Other
-  obsidian
-  darktable
+  # darktable
 
   # Agents
   opencode
   crush
 
   flyctl
+
+  deno
+
+  tailscale
+
+  yt-dlp
 ]
